@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  golang-1-5:
+    image: xieyunzi/golang:1.5-gdb
+    build: .
+    volumes:
+      - .:/code
+    working_dir: /code
+    security_opt:
+      - seccomp:unconfined
+    command: /bin/bash
+
+networks:
+  default:
+    external:
+      name: xz-bridge
